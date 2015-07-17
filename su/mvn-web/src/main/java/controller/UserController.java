@@ -15,6 +15,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/index")
 	public String index(){
+		System.out.println("start");
 		User user = userService.selectByPrimaryKey(1);
 		System.out.println(user);
 		return "index";
