@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/mvnweb?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="123456"></property>
+        <property name="maxActive" value="100"></property>
+        <property name="maxIdle" value="30"></property>
+        <property name="maxWait" value="500"></property>
+        <property name="defaultAutoCommit" value="true"></property>
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- <property name="configLocation" value="classpath:mybatis-Configuration.xml"></property> -->
+        <property name="mapperLocations" value="classpath:main/resources/mapper/*.xml"/>
+        <property name="dataSource" ref="dataSource" />
+        <!-- 别名为实体全类的包名 -->
+        <property name="typeAliasesPackage" value="main.java.model" />
+    </bean>
+    
+    <!-- 扫描Mappersql映射文件接口的包名,多个基包之间可以使用逗号或者分号进行分隔 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
+       <property name="basePackage" value="main.java.dao" />  
+       <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+    
+    <!-- 事物管理 -->
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	    <property name="dataSource" ref="dataSource" />
+	</bean>   
+    
+    <!-- 声明式事物 -->
+    <tx:annotation-driven transaction-manager="txManager"/>
+    
+	<!-- 自动扫描组件，这里要把controler下面的 controller去除，他们是在springMvc-servlet.xml中配置的，如果不去除会影响事务管理的。   --> 
+	<!-- <context:component-scan base-package="com.su"> 
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service" />
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository" />
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan> -->
+    <context:component-scan base-package="main.java.service" />
+    <context:component-scan base-package="main.java.dao" />
+	
+	<!-- 注解探测器 -->
+	<context:annotation-config />
+		
+	<!-- 启动对@AspectJ注解的支持 -->  
+	<aop:aspectj-autoproxy />
+</beans>
