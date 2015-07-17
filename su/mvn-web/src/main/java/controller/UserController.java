@@ -18,6 +18,7 @@ public class UserController {
 		System.out.println("start");
 		User user = userService.selectByPrimaryKey(1);
 		System.out.println(user);
+		System.out.println("end");
 		return "index";
 	}
 }
