@@ -48,6 +48,7 @@
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository" />
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan> -->
+	<context:component-scan base-package="main.java.controller" />
     <context:component-scan base-package="main.java.service" />
     <context:component-scan base-package="main.java.dao" />
 	
