@@ -175,7 +175,7 @@
                 <configuration>  
                     <!-- <url>http://localhost:8080/manager/text</url>  
                     <username>tomcat</username>  
-                    <password>tomcat</password>  --> 
+                    <password>tomcat</password> -->
                     <path>/</path>  
                 </configuration>  
             </plugin> 

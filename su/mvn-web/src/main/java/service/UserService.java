@@ -2,17 +2,15 @@ package main.java.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import main.java.dao.UserMapper;
 import main.java.model.User;
 
 @Service
-@Transactional
 public class UserService {
 	
 	@Autowired
-	private UserMapper userMapper;
+	UserMapper userMapper;
 	
 	public int deleteByPrimaryKey(Integer useId){
 		return userMapper.deleteByPrimaryKey(useId);
