@@ -5,24 +5,10 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   
-  <properties>  
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  
-        <project.deploy>deploy</project.deploy>  
-        <!-- 使用的tomcat版本 -->
-        <project.tomcat.version>8.0.0-RC5</project.tomcat.version>  
-        
+  <properties>     
 		<spring.version>4.1.1.RELEASE</spring.version>
-		<jackson.version>2.5.0</jackson.version>
-    </properties>  
+  </properties>  
  	<dependencies> 
- 		<!-- tomcat -->
-        <dependency>  
-            <groupId>org.apache.tomcat</groupId>  
-            <artifactId>tomcat-servlet-api</artifactId>  
-            <version>${project.tomcat.version}</version>  
-            <scope>provided</scope>  
-        </dependency> 
-        
         <dependency>
 	        <groupId>org.springframework</groupId>
 	        <artifactId>spring-context</artifactId>
@@ -146,35 +132,6 @@
 			<artifactId>mybatis-paginator</artifactId>
 			<version>1.2.15</version>
 		</dependency>
-		<dependency>
-			<groupId>commons-dbcp</groupId>
-			<artifactId>commons-dbcp</artifactId>
-			<version>1.4</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-pool</groupId>
-			<artifactId>commons-pool</artifactId>
-			<version>1.6</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-			<version>4.3.5</version>
-		</dependency>
-		
-		<!-- jsp/servlet -->
-       <dependency>
-           <groupId>javax.servlet</groupId>
-           <artifactId>servlet-api</artifactId>
-           <version>2.5</version>
-           <scope>provided</scope>
-       </dependency>
-       <dependency>
-           <groupId>javax.servlet.jsp</groupId>
-           <artifactId>jsp-api</artifactId>
-           <version>2.2</version>
-           <scope>provided</scope>
-       </dependency>
  	</dependencies>  
   	<build>  
         <plugins>  
@@ -187,6 +144,7 @@
 			      <target>1.8</target>
 			    </configuration>
 			</plugin>
+			<!-- 使用tomcat7-maven-plugin -->
             <plugin>  
                 <groupId>org.apache.tomcat.maven</groupId>  
                 <artifactId>tomcat7-maven-plugin</artifactId>  
