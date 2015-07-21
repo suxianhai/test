@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="main.java.dao.UserMapper" >
   <resultMap id="BaseResultMap" type="main.java.model.User" >
-    <id column="useId" property="useId" jdbcType="INTEGER" />
+    <id column="userId" property="userId" jdbcType="INTEGER" />
     <result column="userName" property="userName" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="age" property="age" jdbcType="INTEGER" />
@@ -10,31 +10,31 @@
     <result column="companyName" property="companyName" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    useId, userName, password, age, telphone, companyName
+    userId, userName, password, age, telphone, companyName
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from user
-    where useId = #{useId,jdbcType=INTEGER}
+    where userId = #{userId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from user
-    where useId = #{useId,jdbcType=INTEGER}
+    where userId = #{userId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="main.java.model.User" >
-    insert into user (useId, userName, password, 
+    insert into user (userId, userName, password, 
       age, telphone, companyName
       )
-    values (#{useId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+    values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{age,jdbcType=INTEGER}, #{telphone,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="main.java.model.User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="useId != null" >
-        useId,
+      <if test="userId != null" >
+        userId,
       </if>
       <if test="userName != null" >
         userName,
@@ -53,8 +53,8 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="useId != null" >
-        #{useId,jdbcType=INTEGER},
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
       </if>
       <if test="userName != null" >
         #{userName,jdbcType=VARCHAR},
@@ -92,7 +92,7 @@
         companyName = #{companyName,jdbcType=VARCHAR},
       </if>
     </set>
-    where useId = #{useId,jdbcType=INTEGER}
+    where userId = #{userId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="main.java.model.User" >
     update user
@@ -101,6 +101,6 @@
       age = #{age,jdbcType=INTEGER},
       telphone = #{telphone,jdbcType=VARCHAR},
       companyName = #{companyName,jdbcType=VARCHAR}
-    where useId = #{useId,jdbcType=INTEGER}
+    where userId = #{userId,jdbcType=INTEGER}
   </update>
 </mapper>

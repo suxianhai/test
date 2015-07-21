@@ -1,7 +1,7 @@
 package main.java.model;
 
 public class User {
-    private Integer useId;
+    private Integer userId;
 
     private String userName;
 
@@ -13,12 +13,12 @@ public class User {
 
     private String companyName;
 
-    public Integer getUseId() {
-        return useId;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUseId(Integer useId) {
-        this.useId = useId;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getUserName() {

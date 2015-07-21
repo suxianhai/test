@@ -14,8 +14,8 @@ public class UserService {
 	@Autowired
 	UserMapper userMapper;
 	
-	public int deleteByPrimaryKey(Integer useId){
-		return userMapper.deleteByPrimaryKey(useId);
+	public int deleteByPrimaryKey(Integer userId){
+		return userMapper.deleteByPrimaryKey(userId);
 	};
 
 	public int insert(User record){
@@ -26,8 +26,8 @@ public class UserService {
     	return userMapper.insertSelective(record);
     };
 
-    public User selectByPrimaryKey(Integer useId){
-    	return userMapper.selectByPrimaryKey(useId);
+    public User selectByPrimaryKey(Integer userId){
+    	return userMapper.selectByPrimaryKey(userId);
     };
 
     public int updateByPrimaryKeySelective(User record){
