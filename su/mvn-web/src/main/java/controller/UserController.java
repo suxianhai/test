@@ -16,8 +16,11 @@ public class UserController {
 	@RequestMapping(value = "/index")
 	public String index(){
 		System.out.println("start");
-		User user = userService.selectByPrimaryKey(1);
-		System.out.println(user);
+		User user = new User();
+		user.setUserName("suxianhai");
+		user.setPassword("123456");
+		userService.insert(user);
+		System.out.println(user.toString());
 		System.out.println("end");
 		return "index";
 	}
