@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+
+/* 引入metro样式  */
+/* @import url(metro/style.css); */
+@import url(metro/style-responsive.css);
+/* @import url(metro/default.css); */
+
+/* 引入插件样式  */
+@import url(lib/bootstrap.pnotify.css);
+@import url(lib/jquery.mCustomScrollbar.min.css);
+
+
+/*引入网站自定义样式*/
+@import url(common-style.css);

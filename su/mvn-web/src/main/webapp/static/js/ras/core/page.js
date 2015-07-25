@@ -19,13 +19,6 @@ define(function(require,exports,module){
 		},
 
 		/**
-		 * 渲染子页面，子类需要覆盖该方法
-		 */
-		renderSubview : function(){
-			console.error('you need to rewrite the method : renderSubview');
-		},
-
-		/**
 		 * page父类的render方法
 		 */
 		_render : function(activeEl){
@@ -34,32 +27,12 @@ define(function(require,exports,module){
 				$(activeEl).addClass("active");
 			}
 			this.mainView.render();
-			this.renderSubview();
-		},
-
-		/**
-		 * page父类的renderSubview方法
-		 */
-		_renderSubview : function(){
-			var page = this;
-			this.mainView['subView'] = this.subView;
-			if(this.subView){
-				this.subView.on('all', function(eventName,args){
-					page.trigger(eventName, args);
-				});
-				this.subView.render();
-			}
 		},
 
 		remove : function(){
 			this.off();
 			this.undelegateEvents();
-			if(this.subView){
-				this.subView.off();
-				this.subView.remove();
-				this.subView = null;
-			}
-
+			
 			if(this.mainView){
 				this.mainView.off();
 				this.mainView.remove();

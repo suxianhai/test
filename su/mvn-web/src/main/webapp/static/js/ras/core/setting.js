@@ -4,6 +4,7 @@
 define(function(require, exports, module) {
 	
 	require('plugins/bootstrap.bootbox');
+	require('plugins/bootstrap.pnotify');
 
 	var setting = {
 

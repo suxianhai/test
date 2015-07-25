@@ -4,6 +4,8 @@
 define(function(require, exports, module) {
 	
 	var templates = require('ras/template');
+	require('plugins/jquery.mCustomScrollbar.min');
+	require('plugins/jquery.mousewheel.min');
 
 	var datepickerHelper = {
 		defaults : {
@@ -99,11 +101,6 @@ define(function(require, exports, module) {
 		 * @param key 页面区域标识,key值不可重复,具体key值定义请参考layout.getConfig()
 		 */
 		setLayout : function(targetEl, callbacks) {
-			//设置不需要滚动条的页面
-			/*if(targetEl.indexOf("#print") == 0){
-				$(targetEl).removeClass("scrollwrapper");//打印页面不需要滚动条
-				return;
-			}*/
 			var obj = $(targetEl);
 			if(!obj) return;
 			var height = obj.attr('height');
@@ -111,6 +108,13 @@ define(function(require, exports, module) {
 				var marginbottom = obj.attr('marginbottom') || 0;
 				var top = obj.offset().top;
 				height = $(window).height()- top - marginbottom;
+			}
+			if(obj.parents("#entitybox").get(0)!=null){	//模态窗中的滚动条
+				var entitybox=obj.parents("#entitybox").find(".modal-content");	//模态窗对象
+				var ebHeight=entitybox.height();	//模态窗高度
+				var ebTop = entitybox.offset().top;	//模态窗上边距
+				var ebBottom=$(window).height()-ebHeight-ebTop;	//模态窗底部边距
+				height=height-ebBottom;	//滚动条元素高度减掉模态窗底部高度
 			}
 			obj.css('height',height);
 			
@@ -242,7 +246,7 @@ define(function(require, exports, module) {
 		 * @param needHide 是否需要自动隐藏消息框  ，true:自动隐藏，false:不自动隐藏
 		 * */
 		notify:function(message,title,type,needHide){
-			if(needHide==undefined) needHide=true;
+			if(needHide==undefined) needHide=false;
 		    var opts = {
 	    		sticker: false,
 	    		shadow: false,

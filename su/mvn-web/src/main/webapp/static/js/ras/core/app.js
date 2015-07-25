@@ -12,6 +12,7 @@ define(function(require, exports, module){
 		
 		initialize : function(options){
 			this.relogin=true;
+			utils.layout('.page-container');//设置滚动条
 		},
 		
 		delegateEvents : function(){
@@ -30,13 +31,8 @@ define(function(require, exports, module){
 					this.lastPage.mainView.remove();
 				}
 				this.lastPage = page;
-			}else{//只更新page的子页面
+			}else{
 				this.update(page);
-				//更新子页面之前先销毁原来view
-				if(this.lastPage.subView){
-					this.lastPage.subView.remove();
-					this.lastPage.renderSubview();
-				}
 				return;
 			}
 			this.lastPage.render();

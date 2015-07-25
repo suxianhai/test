@@ -16,7 +16,7 @@ define(function(require, exports, module) {
 			this.model = new UserModel(options);
 			//this.initComponents();
 			
-			//utils.layout(this.el);//设置滚动条
+			utils.layout('#testDiv');//设置滚动条
 		},
 		/**
 		 * 初始化公共或其他模块的控件；
@@ -127,6 +127,13 @@ define(function(require, exports, module) {
 	
 		//渲染用户demo页面
 		render : function(){
+			utils.confirm("你大爷",function(flag){
+				if(flag){
+					utils.notify('11');
+					utils.alert(111111111111111111111111111111111111111111111111111111111111111111111111111);
+				}
+			});
+			
 			
 		}
 	});

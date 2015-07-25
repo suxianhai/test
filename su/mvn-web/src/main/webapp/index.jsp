@@ -16,13 +16,7 @@
 <!-- 可选的Bootstrap主题文件（一般不用引入） -->
 <link rel="stylesheet" href="static/js/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
 
-<!-- BEGIN GLOBAL MANDATORY STYLES -->
-<link href="static/css/metro/style.css" rel="stylesheet" type="text/css"/>
-<link href="static/css/metro/style-responsive.css" rel="stylesheet" type="text/css"/>
-<link href="static/css/metro/default.css" rel="stylesheet" type="text/css"/>
-<!-- END GLOBAL MANDATORY STYLES -->
-
-<link href="static/css/common-style.css" rel="stylesheet" type="text/css"/>
+<link href="static/css/all.css" rel="stylesheet" type="text/css"/>
 
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 <script src="static/js/lib/jquery-1.11.3.min.js"></script>
@@ -41,6 +35,8 @@
 <!-- 引入backbone -->
 <script src="static/js/lib/backbone-min.js"></script>
 
+<script src="static/js/lib/jquery-ui-1.10.4.min.js"></script>
+
 <script>
 seajs.config({ 
  	base : "/static/js",
@@ -57,9 +53,10 @@ seajs.config({
 seajs.use("ras/core/main"); 
 </script>
 </head>
-<body class="page-header-fixed">
+<!-- class="page-header-fixed" -->
+<body style="overflow: hidden;">
 	<!-- BEGIN HEADER -->
-	<div class="header navbar navbar-inverse navbar-fixed-top">
+	<div class="header navbar navbar-inverse navbar-static-top">
 		<div class="navbar-inner">
 			<div class="container-fluid">
 				<!-- BEGIN LOGO -->
@@ -81,7 +78,7 @@ seajs.use("ras/core/main");
 			<!-- <div><span class="glyphicon glyphicon-home"></span></div> -->
 			<!-- BEGIN SIDEBAR MENU -->        
 			<ul class="page-sidebar-menu">
-				<li class="start active " style="margin-top:8px;">
+				<li class="start active " >
 					<a href="index.html" class="router"><i class="glyphicon glyphicon-home"></i><span class="title">系统首页</span><span class="selected"></span></a>
 				</li>
 				<li>
@@ -106,10 +103,11 @@ seajs.use("ras/core/main");
 		
 		<!-- BEGIN PAGE -->
 		<div class="page-content">
-			<div class="container-fluid">
+			<div class="container-fluid" id="mainContainer">
+			
 			</div>
 		</div>
-		<!-- END PAGE -->
+		<!-- END PAGE -->		
 	</div>
 	<!-- END CONTAINER -->
 	

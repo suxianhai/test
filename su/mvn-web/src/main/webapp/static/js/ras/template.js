@@ -4,7 +4,7 @@
 define(function(require, exports, module) {
 	var templates = {
 		//静态html模板	
-		'user.userpage'				: require('tpl/user/user.tpl'),
+		'user.userpage'			: require('tpl/user/user.tpl'),
 		'user.userpage2'		: '<p class="user"><span><%=name%></span></p>'
 	};
 	module.exports = templates;
