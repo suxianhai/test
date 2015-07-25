@@ -72,7 +72,7 @@ seajs.use("ras/core/main");
 	<!-- BEGIN TOP NAVIGATION BAR -->
 	
 	<!-- BEGIN CONTAINER -->
-	<div class="page-container row-fluid">
+	<div class="page-container row-fluid scrollwrapper">
 		<!-- BEGIN SIDEBAR -->
 		<div class="page-sidebar nav-collapse">
 			<!-- <div><span class="glyphicon glyphicon-home"></span></div> -->

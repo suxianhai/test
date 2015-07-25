@@ -7,16 +7,17 @@ define(function(require, exports, module){
 	
 	//添加自定义的page
 	var UserView = require('ras/user/userview');
+	var Event = require('ras/event');
 	
 	var App = Backbone.View.extend({
 		
 		initialize : function(options){
 			this.relogin=true;
-			utils.layout('.page-container');//设置滚动条
 		},
 		
 		delegateEvents : function(){
 			var view = this;
+			Event.initEvent();
 		},
 		/*
 		 * forceRefresh=true 表示需要强制刷新
@@ -36,9 +37,8 @@ define(function(require, exports, module){
 				return;
 			}
 			this.lastPage.render();
-			//Event.setLastPage(this.lastPage);
+			Event.setLastPage(this.lastPage);
 			
-			//$("body").trigger('rViewSlide');	//右侧视图渲染
 			$(window).trigger('resize');
 		},
 		

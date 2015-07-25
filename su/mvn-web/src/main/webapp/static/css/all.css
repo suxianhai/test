@@ -2,9 +2,9 @@
 
 
 /* 引入metro样式  */
-/* @import url(metro/style.css); */
+@import url(metro/style.css);
 @import url(metro/style-responsive.css);
-/* @import url(metro/default.css); */
+@import url(metro/default.css);
 
 /* 引入插件样式  */
 @import url(lib/bootstrap.pnotify.css);
