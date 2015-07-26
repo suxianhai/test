@@ -6,7 +6,6 @@ define(function(require, exports, module) {
 		//初始化
 		initialize : function(options) {
 			this.app = new App();
-			
 		},
 
 		routes : {

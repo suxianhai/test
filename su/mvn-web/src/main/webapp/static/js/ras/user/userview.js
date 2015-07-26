@@ -130,7 +130,7 @@ define(function(require, exports, module) {
 			utils.confirm("你大爷",function(flag){
 				if(flag){
 					utils.notify('11');
-					utils.alert(111111111111111111111111111111111111111111111111111111111111111111111111111);
+					utils.alert(222);
 				}
 			});
 			
