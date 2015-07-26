@@ -1,8 +1,13 @@
 package main.java.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 
 import main.java.dao.UserMapper;
 import main.java.model.User;
@@ -36,5 +41,13 @@ public class UserService {
 
     public int updateByPrimaryKey(User record){
     	return userMapper.updateByPrimaryKey(record);
+    };
+    
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public PageInfo findList(User record,int pageNo,int pageSize){
+    	PageHelper.startPage(pageNo,pageSize);
+    	List<User> list = userMapper.findList(record);
+    	PageInfo page = new PageInfo(list);
+    	return page;
     };
 }

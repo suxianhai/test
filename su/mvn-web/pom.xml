@@ -134,14 +134,27 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.7.7</version>
 		</dependency>
-	
-	
+		
+		<!-- mybatis分页插件 -->
 		<dependency>
-			<groupId>com.github.miemiedev</groupId>
-			<artifactId>mybatis-paginator</artifactId>
-			<version>1.2.15</version>
+		    <groupId>com.github.pagehelper</groupId>
+		    <artifactId>pagehelper</artifactId>
+		    <version>4.0.0</version>
 		</dependency>
- 	</dependencies>  
+ 	</dependencies> 
+ 	<repositories>
+	    <repository>
+	          <id>sonatype-nexus-snapshots</id>
+	          <name>Sonatype Nexus Snapshots</name>
+	          <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+	          <releases>
+	                <enabled>false</enabled>
+	          </releases>
+	          <snapshots>
+	                <enabled>true</enabled>
+	          </snapshots>
+	    </repository>
+	</repositories> 
   	<build>  
         <plugins>  
         	<!-- 使用jdk1.8 -->
